@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import topbar from './topBar.js'
+import utils from './utils.js'
+import votes from './votes.js'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
-        topbar
+        utils,
+        votes,
     }
 })
 

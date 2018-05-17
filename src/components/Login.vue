@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import topBar from '@/components/topBar';
+import topBar from '@/components/Topbar';
 import fullScreen from '@/mixins/fullScreen.js';
 
 export default {

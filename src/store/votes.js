@@ -4,9 +4,9 @@ const mutations = {};
 const actions = {};
 
 export default {
-    namespace: true,
-    state,
-    getters,
-    mutations,
-    actions
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
 }

@@ -24,4 +24,7 @@ body {
 #app {
   
 }
+.pointer {
+  cursor: pointer;
+}
 </style>

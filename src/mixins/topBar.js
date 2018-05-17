@@ -5,18 +5,6 @@ export default {
     }
   },
   computed: {
-    connection() {
-      return window.navigator.onLine;
-    },
-    connectionURL() {
-      const vm = this;
-      const img = vm.connection ? 'wifi.svg' : 'no-wifi.svg';
-      return require(`@/assets/${img}`);
-    },
-    connectionLabel() {
-      const vm = this;
-      return vm.connection ? 'Online' : 'Offline - Service Worker';
-    },
     time() {
       const vm = this;
       setInterval(() => {

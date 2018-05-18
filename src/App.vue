@@ -27,4 +27,7 @@ body {
 .pointer {
   cursor: pointer;
 }
+.fullHeight {
+  height: 100vh;
+}
 </style>

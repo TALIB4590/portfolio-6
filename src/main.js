@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router.js'
 import store from './store/store.js'
+import VueFire from 'vuefire';
+
+Vue.use(VueFire);
 
 Vue.config.productionTip = false
 

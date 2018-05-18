@@ -1,12 +1,18 @@
 <template>
-    <div class="top-bar" :class="color">
-      <div class="group pointer" v-for="vote in votes" :key="vote.icon" @click="voted(vote.icon)">
-          <i :class="`icon icon-${vote.icon}`" :style="{color: vote.color}"></i>
-          <span class="label">{{ vote.label }}</span>
+    <div class="top-bar" :class="color">    
+      <div v-if="!hideVotes" class="group pointer" @click="voted('like')">
+        <animated :value="Number(like)"/>
+        <i class="icon icon-like like-color"></i>
+        <span class="label">Like</span>
+      </div>
+      <div v-if="!hideVotes" class="group pointer" @click="voted('dislike')">
+        <animated :value="Number(dislike)"/>
+        <i class="icon icon-dislike dislike-color"></i>
+        <span class="label">Dislike</span>
       </div>
       <div class="group">
-          <i class="icon icon-compass"></i>
-          <span class="label">{{ userBrowser.name }}</span>
+        <i class="icon icon-compass"></i>
+        <span class="label">{{ userBrowser.name }}</span>
       </div> 
       <div class="group">
         <img :src="connectionURL" :alt="`${connection}-connected`">
@@ -19,22 +25,26 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
-import topBar from '@/mixins/topBar.js';
+import { mapState, mapGetters, mapActions } from 'vuex';
+import topBarMixin from '@/mixins/topBar.js';
+import animated from '@/components/Animated'
 
 export default {
-  mixins: [topBar],
+  mixins: [topBarMixin],
   name: 'topbar',
-  props: ['color'],
+  components: {
+    animated
+  },
+  props: {
+    color: String,
+    hideVotes: Boolean
+  },
   data() {
     return {
-      votes: [
-        { label: 'Like', icon: 'like', color: 'mediumseagreen' },
-        { label: 'Dislike', icon: 'dislike', color: 'tomato' },
-      ],
     };
   },
   computed: {
+    ...mapState('votes',['like','dislike']),
     ...mapGetters({
       userBrowser: 'utils/userAgent',
     }),
@@ -52,9 +62,18 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      getVotes: 'votes/firebaseVotes',
+      updateVotes: 'votes/updateFirebaseVotes',
+    }),
     voted(val) {
-      alert(val);
+      const vm = this;
+      vm.updateVotes(val).then(console.log('ok'))
     }
+  },
+  created(){
+    const vm = this;
+    vm.getVotes()
   }
 };
 </script>
@@ -72,12 +91,18 @@ export default {
 }
 .top-bar .group {
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 1vw;
 }
 .dark {
   background-color: #333333;
   box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.17);
   text-align: center;
   width: 100%;
+}
+.like-color {
+  color: mediumseagreen;
+}
+.dislike-color {
+  color: tomato;
 }
 </style>

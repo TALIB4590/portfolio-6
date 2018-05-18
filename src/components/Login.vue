@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="fullHeight">
     <div class="fixedImg" :style="bkgImage"></div>
-    <top-bar/>
+    <top-bar hide-votes/>
     <div class="login-options">
         <h2>Welcome to nikOS</h2>
         <div class="avatar" @click="login">
@@ -26,6 +26,7 @@
             </div>  
         </div>
     </div>
+    <img class="hidden" v-if="hidden" v-for="img in hiddenImages" :key="img.name" :src="require(`@/assets/${img.name}`)">
   </div>
 </template>
 <script>
@@ -36,7 +37,7 @@ export default {
   mixins: [fullScreen],
   name: 'Login',
   components: {
-    topBar
+    topBar,
   },
   data() {
     return {
@@ -49,6 +50,7 @@ export default {
         'tree.jpg',
         'milky-way.jpg',
       ],
+      hiddenImages: [{ name: 'mountain.png' }, { name: 'sky.jpg' }],
     };
   },
   computed: {
@@ -79,8 +81,14 @@ export default {
 };
 </script>
 <style>
+.hidden {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
 .fixedImg {
-  background: center center / cover no-repeat;
+  background: url('../assets/tree.jpg') center center / cover no-repeat;
   filter: blur(20px);
   height: 100vh;
   left: 0;

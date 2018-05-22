@@ -1,10 +1,10 @@
 <template>
-  <div class="main fullHeight">
+  <div class="main fullHeight" @contextmenu="ok">
     <top-bar color="dark"/>
     <div class="sky bg"></div>
-    <div class="date bg text">{{ greeceDate() }}</div>
+    <div class="date bg text">{{ localDate() }}</div>
     <div class="time bg text">{{ time }}</div>
-    <div class="day bg text">{{ greeceDay() }}</div>
+    <div class="day bg text">{{ localDay() }}</div>
     <div class="mountain bg">
       <router-view/>
       <dock/>
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import topBarMixin from '@/mixins/topBar.js';
+import timeMixin from '@/mixins/time.js';
 import topBar from '@/components/Topbar';
 import dock from '@/components/Dock';
 import weather from '@/components/Weather';
 
 export default {
-  mixins: [topBarMixin],
+  mixins: [timeMixin],
   name: 'Main',
   components: {
     topBar,
@@ -27,10 +27,13 @@ export default {
     weather,
   },
   data() {
-    return {
-    };
+    return {};
   },
-  
+  methods: {
+    ok() {
+      console.log('ok');
+    },
+  },
 };
 </script>
 
@@ -88,5 +91,4 @@ export default {
   z-index: 3;
   background-image: url('../assets/mountain.png');
 }
-
 </style>

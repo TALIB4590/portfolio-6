@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "draggable-vue-directive": "^1.1.0",
     "firebase": "^5.0.3",
     "sw-precache-webpack-plugin": "^0.11.5",
     "vue": "^2.5.16",

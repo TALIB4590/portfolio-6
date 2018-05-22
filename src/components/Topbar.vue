@@ -26,11 +26,11 @@
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import topBarMixin from '@/mixins/topBar.js';
+import timeMixin from '@/mixins/time.js';
 import animated from '@/components/Animated'
 
 export default {
-  mixins: [topBarMixin],
+  mixins: [timeMixin],
   name: 'topbar',
   components: {
     animated

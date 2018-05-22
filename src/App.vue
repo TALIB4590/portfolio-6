@@ -21,13 +21,16 @@ body {
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-#app {
-  
-}
+
 .pointer {
   cursor: pointer;
 }
 .fullHeight {
   height: 100vh;
+}
+ul,li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 </style>

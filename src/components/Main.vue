@@ -1,9 +1,9 @@
 <template>
-  <div class="main fullHeight" @contextmenu="ok">
+  <div class="main fullHeight" @keydown.esc="$router.push({name: 'Main'})" tabindex="0">
     <top-bar color="dark"/>
     <div class="sky bg"></div>
     <div class="date bg text">{{ localDate() }}</div>
-    <div class="time bg text">{{ time }}</div>
+    <div class="time bg text">{{ currentTime }}</div>
     <div class="day bg text">{{ localDay() }}</div>
     <div class="mountain bg">
       <router-view/>

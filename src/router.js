@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
 import Weather from '@/components/Weather'
+import iPhone from '@/components/iPhone'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,10 @@ let router = new VueRouter({
       path: '/pc/weather',
       name: 'Weather',
       component: Weather
+    },{
+      path: '/pc/iphone',
+      name: 'iPhone',
+      component: iPhone
     }]
   }, ],
   mode: 'history',

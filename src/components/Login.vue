@@ -23,7 +23,7 @@
             <div class="option">
                 <i class="icon icon-info"></i>
                 <label>About</label>
-            </div>  
+            </div>
         </div>
     </div>
     <img class="hidden" v-if="hidden" v-for="img in hiddenImages" :key="img.name" :src="require(`@/assets/${img.name}`)">
@@ -69,9 +69,10 @@ export default {
     login() {
       const vm = this;
       vm.hidden = 1;
-      setInterval(() => {
+      const interval = setInterval(() => {
         if (vm.timer === 100) {
           vm.timer = 0;
+          clearInterval(interval);
           return vm.$router.push('pc');
         }
         vm.timer++;

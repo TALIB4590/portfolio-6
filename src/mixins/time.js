@@ -1,12 +1,16 @@
 export default {
+  data() {
+    return {
+      timeNow: this.localTime()
+    }
+  },
   computed: {
-    time() {
+    currentTime() {
       const vm = this;
-      let timeNow = vm.localTime()
       setInterval(() => {
-        timeNow = vm.localTime();
+        vm.timeNow = vm.localTime();
       }, 10000);
-      return timeNow;
+      return vm.timeNow;
     },
   },
   methods: {

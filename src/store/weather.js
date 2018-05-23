@@ -18,8 +18,7 @@ const actions = {
       fetch(`${state.api + state.key}&q=${!payload?state.city:payload}&days=6`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
-          'error' in data?state.weather = null:commit('setWeather', data)
+          'error' in data?state.weather = null:commit('setWeather', data);localStorage.setItem('city', payload?payload:state.city);
           resolve(data)
         }).catch(error => {
           reject(error)

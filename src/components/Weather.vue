@@ -98,12 +98,13 @@ export default {
   },
   created() {
     const vm = this;
-    vm.getWeather();
+    const savedCity = localStorage.getItem('city');
+    vm.getWeather(savedCity);
   },
 };
 </script>
 <style>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active {
   transition: opacity 1s ease;
 }
 .fade-enter, .fade-leave-to {

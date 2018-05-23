@@ -3,14 +3,22 @@
     <div class="dock"></div>
     <div class="dock upper-layer">
         <ul class="apps">
-            <li class="app">
-              <label class="tooltip">{{ userBrowser.name || browserName }}</label>
-              <img :src="userAgentImg" width="50" height="50">
-            </li>
-            <li class="app">
-              <label class="tooltip">Weather</label>
-              <img src="../assets/weather.png" width="50" height="50" @click="$router.push({name: 'Weather'})">
-            </li>
+          <li class="app">
+            <label class="tooltip">Desktop</label>
+            <img src="../assets/home.png" width="50" height="50" @click="$router.push({name: 'Main'})">
+          </li>
+          <li class="app">
+            <label class="tooltip">{{ userBrowser.name || browserName }}</label>
+            <img :src="userAgentImg" width="50" height="50">
+          </li>
+          <li class="app">
+            <label class="tooltip">Weather</label>
+            <img src="../assets/weather.png" width="50" height="50" @click="$router.push({name: 'Weather'})">
+          </li>
+          <li class="app">
+            <label class="tooltip">iPhone 6 CSS</label>
+            <img src="../assets/iphone.png" width="50" height="50" @click="$router.push({name: 'iPhone'})">
+          </li>
         </ul>
     </div>
     </div>

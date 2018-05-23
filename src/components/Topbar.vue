@@ -20,7 +20,7 @@
       </div>
       <div class="group">
         <i class="icon icon-clock"></i>
-        <span class="label">{{ time }}</span>
+        <span class="label">{{ currentTime }}</span>
       </div>    
     </div>
 </template>
@@ -68,7 +68,7 @@ export default {
     }),
     voted(val) {
       const vm = this;
-      vm.updateVotes(val).then(console.log('ok'))
+      vm.updateVotes(val)
     }
   },
   created(){

@@ -3,7 +3,6 @@ import {
 } from '@/firebase.js'
 
 const state = {
-  firstTime: true,
   like: 0,
   dislike: 0
 };
@@ -20,14 +19,14 @@ const actions = {
   }) {
     fire.db.ref('votes').on('value', snapshot => {
       commit('setVotes', snapshot.val())
-    });
+    })
   },
   updateFirebaseVotes({
     commit,
     state
   }, payload) {
-    if (state.firstTime) {
-      fire.db.ref(`votes/${payload}`).set(++state[`${payload}`]).then(state.firstTime = false)
+    if (!localStorage.getItem('first-time')) {
+      fire.db.ref(`votes/${payload}`).set(++state[`${payload}`]).then(localStorage.setItem('first-time', false))
     }
   }
 };

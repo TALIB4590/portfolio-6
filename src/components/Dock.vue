@@ -3,21 +3,13 @@
     <div class="dock"></div>
     <div class="dock upper-layer">
         <ul class="apps">
-          <li class="app">
-            <label class="tooltip">Desktop</label>
-            <img src="../assets/home.png" width="50" height="50" @click="$router.push({name: 'Main'})">
+          <li class="app" v-for="item in items" :key="item.title">
+            <label class="tooltip">{{ item.title }}</label>
+            <img :src="require(`@/assets/${item.icon}`)" width="50" height="50" @click="$router.push({name: item.navigation})">
           </li>
           <li class="app">
             <label class="tooltip">{{ userBrowser.name || browserName }}</label>
             <img :src="userAgentImg" width="50" height="50">
-          </li>
-          <li class="app">
-            <label class="tooltip">Weather</label>
-            <img src="../assets/weather.png" width="50" height="50" @click="$router.push({name: 'Weather'})">
-          </li>
-          <li class="app">
-            <label class="tooltip">iPhone 6 CSS</label>
-            <img src="../assets/iphone.png" width="50" height="50" @click="$router.push({name: 'iPhone'})">
           </li>
         </ul>
     </div>
@@ -28,6 +20,16 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'Dock',
+  data() {
+    return {
+      items: [
+        {title: 'Desktop',icon: 'home.png',navigation: 'Main'},
+        {title: 'Weather',icon: 'weather.png',navigation: 'Weather'},
+        {title: 'Portfolio',icon: 'iphone.png',navigation: 'iPhone'},
+        {title: 'Gallery',icon: 'gallery.png',navigation: 'Gallery'},
+      ]
+    }
+  },
   computed: {
     ...mapState('utils', ['browserName', 'browserSrc']),
     ...mapGetters({

@@ -4,11 +4,21 @@
       <div class="iphone">
         <div class="screen" id="screen">
             <div id="full-screen">
-                <div v-for="site in portfolio.sites" :key="site.name" @click="$refs.iframe.src = site.url">{{ site.name }}</div>
-                <iframe ref="iframe" src="http://workenter.gr"></iframe>
+              <h3>Projects</h3>
+              <h4>Websites</h4>
+              <div class="sites" :class="{pointer: site.url!=''}" v-for="site in portfolio.sites" :key="site.name" @click="$router.replace({name: 'Project', params: {url: site.url}})">
+                <img v-if="site.image != '#'" class="sites-img" :src="siteURL(site.image)" :alt="site.name"/>
+                <div class="sites-description">{{ site.description }}</div>
+              </div>
+              <h4>Apps</h4>
+              <div class="sites" v-for="app in portfolio.apps" :key="app.name">
+                <h5>{{ app.name }}</h5>
+                <div class="sites-description">{{ app.description }}</div>
+              </div>
+              <router-view/>
             </div>
         </div>
-        <div class="button"></div>
+        <div class="button pointer" :class="{opened: iframeEnabled}" @click="$router.replace({name: 'iPhone'})"></div>
         <div class="speaker"></div>
         <div class="camera"></div>
       </div>
@@ -16,6 +26,7 @@
 </template>
 <script>
 import { Draggable } from 'draggable-vue-directive';
+import { mapState } from 'vuex';
 
 export default {
   name: 'iphone',
@@ -29,55 +40,54 @@ export default {
           {
             name: 'Workenter',
             description: 'News portal - FrontEnd & Drupal Development',
-            url: 'http://workenter.gr',
+            image: 'http://workenter.gr/sites/default/files/widget.jpg',
+            url: 'workenter.gr',
           },
           {
             name: 'Schoolbusnet',
             description: 'Single page website - FrontEnd Development',
-            url: 'http://schoolbusnet.eu',
+            image: 'http://schoolbusnet.eu/img/logo.png',
+            url: 'schoolbusnet.eu',
           },
           {
             name: 'Accurate LP',
             description: 'Single page website - FrontEnd Development',
-            url: 'http://naccurate.gr',
+            image: 'http://naccurate.gr/img/logos/Logo-Nav.png',
+            url: 'naccurate.gr',
           },
           {
             name: 'Ellinomania',
             description: 'Warez site - Co-Founder & FrontEnd Development',
-            url: 'http://ellinomania.eu',
-          },
-          {
-            name: 'Old Portfolio',
-            description: 'Portfolio - Design & FrontEnd Development',
-            url: 'http://old.koikas.eu',
-          },
-          {
-            name: 'Internal Projects at current job',
-            description: 'Wide variety of internal projects',
-            url: '#',
+            image:
+              'http://www.ellinomania.eu/uploads/monthly_2018_04/71_FF.png.62511660fdd1b2eb2f3540e89d1f5742.png',
+            url: 'ellinomania.eu',
           },
           {
             name: 'Movies playstore',
-            description: 'Movies project DEPRECATED - FullStack Development',
-            url: '#',
+            description: 'Movies project - FullStack Development',
+            image: 'movies.jpg',
+            url: '',
           },
           {
             name: 'Bootstrap Themes',
-            description: 'Themes - FrontEnd Development',
-            url: '#',
+            description: 'Bootstrap Themes - FrontEnd Development',
+            image: 'countdown.jpg',
+            url: '',
+          },
+          {
+            name: 'Old Portfolio',
+            description: 'Old Portfolio - Design & FrontEnd Development',
+            image: '#',
+            url: 'old.koikas.eu',
+          },
+          {
+            name: 'Many Projects at work ',
+            description: 'Wide variety of projects at current job.',
+            image: '#',
+            url: '',
           },
         ],
         apps: [
-          {
-            name: 'nikOS - Portfolio',
-            description:
-              'This application-portfolio, built with Vue.js and Firebase',
-          },
-          {
-            name: 'Projects at current job',
-            description:
-              'Internal projects, built with Vue.js, Firebase and Vue plugins',
-          },
           {
             name: 'Meetups',
             description:
@@ -93,9 +103,27 @@ export default {
             description:
               'Weather mobile application, built with Apache Cordova and pure JS',
           },
+          {
+            name: 'nikOS - Portfolio',
+            description:
+              'This application-portfolio, built with Vue.js and Firebase',
+          },
+          {
+            name: 'Projects at work',
+            description:
+              'A variety of projects, built with Vue.js, Firebase and Vue plugins',
+          },
         ],
       },
     };
+  },
+  computed: {
+    ...mapState('utils',['iframeEnabled'])
+  },
+  methods: {
+    siteURL(src) {
+      return src.startsWith('http') ? src : require(`@/assets/projects/${src}`);
+    },
   },
 };
 </script>
@@ -174,24 +202,51 @@ export default {
 
 .container-iphone .screen {
   position: absolute;
+  overflow: hidden;
   height: 545px;
   width: 310px;
   left: 12px;
   top: 55px;
-  background: #fff;
+  background: #dddddd;
+  z-index: 3;
 }
 
 .container-iphone #full-screen {
-  overflow: hidden;
+  overflow-x: hidden;
   height: 100%;
   margin: 0 auto;
+  width: calc(100% + 17px);
   position: relative;
 }
-.container-iphone #full-screen iframe {
-  border: 0;
-  width: calc(100% + 17px);
-  height: 100%;
+.container-iphone #full-screen h3 {
+  text-align: center;
+  width: 100%;
+  color: mediumseagreen;
+  background-color: white;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  padding: 10px 0;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
 }
+.container-iphone #full-screen h4 {
+  padding: 0 15px;
+  margin: 0;
+}
+.container-iphone #full-screen .sites {
+  margin: 15px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+.container-iphone #full-screen img {
+  width: 100%;
+  border-bottom: 1px solid lightblue;
+}
+.container-iphone #full-screen .sites-description {
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+}
+
 .container-iphone .button {
   position: absolute;
   height: 45px;
@@ -201,7 +256,9 @@ export default {
   border-radius: 50%;
   box-shadow: inset -1px -1px 6px -1px darkgrey;
 }
-
+.container-iphone .button.opened {
+  animation: press .6s ease infinite forwards;
+}
 .container-iphone .speaker {
   position: absolute;
   height: 4px;
@@ -221,5 +278,22 @@ export default {
   border-radius: 50%;
   background: #373737;
   box-shadow: inset -1px -1px 2px #9c9c9c;
+}
+@keyframes press {
+  0% {
+  box-shadow: inset -1px -1px 6px -1px darkgrey;
+  }
+  25% {
+  box-shadow: inset -1px -1px 8px -1px darkgrey;
+  }
+  50% {
+  box-shadow: inset -1px -1px 12px -1px darkgrey;
+  }
+  75% {
+  box-shadow: inset -1px -1px 8px -1px darkgrey;
+  }
+  100% {
+  box-shadow: inset -1px -1px 6px -1px darkgrey;
+  }
 }
 </style>

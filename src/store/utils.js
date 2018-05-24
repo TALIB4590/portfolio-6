@@ -1,4 +1,5 @@
 const state = {
+  iframeEnabled: false,
   browserSrc: 'browser.png',
   browserName: 'Browser',
   browsers: {
@@ -40,7 +41,11 @@ const getters = {
     }
   }
 };
-const mutations = {};
+const mutations = {
+  changeStateiframe(state) {
+    state.iframeEnabled = !state.iframeEnabled;
+  }
+};
 const actions = {};
 
 export default {

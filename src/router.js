@@ -4,6 +4,8 @@ import Login from '@/components/Login'
 import Main from '@/components/Main'
 import Weather from '@/components/Weather'
 import iPhone from '@/components/iPhone'
+import Gallery from '@/components/Gallery'
+import Innerframe from '@/components/Innerframe'
 
 Vue.use(VueRouter)
 
@@ -17,14 +19,24 @@ let router = new VueRouter({
     name: 'Main',
     component: Main,
     children: [{
-      path: '/pc/weather',
+      path: 'weather',
       name: 'Weather',
       component: Weather
     },{
-      path: '/pc/iphone',
+      path: 'iphone',
       name: 'iPhone',
-      component: iPhone
-    }]
+      component: iPhone,
+      children: [{
+        path: ':url',
+        name: 'Project',
+        component: Innerframe,
+        props: true
+      }]
+    },{
+      path: 'gallery',
+      name: 'Gallery',
+      component: Gallery
+    },]
   }, ],
   mode: 'history',
 })

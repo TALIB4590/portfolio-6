@@ -25,6 +25,9 @@ body {
 .pointer {
   cursor: pointer;
 }
+.disabled {
+  pointer-events: none;
+}
 .fullHeight {
   height: 100vh;
 }

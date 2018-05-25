@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-    <div class="weather-wrapper">
+    <div class="window-wrapper">
       <div class="content">
           sd
       </div>

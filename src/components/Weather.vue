@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="weather-wrapper" v-draggable>
+    <div class="window-wrapper" v-draggable>
       <form @submit.prevent="getCityWeather()" class="search">
         <input type="text" v-model.trim="city" placeholder="Search city..."/>
         <button type="submit">
@@ -109,22 +109,6 @@ export default {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
-}
-
-.weather-wrapper {
-  font-family: 'Dosis', sans-serif;
-  position: absolute;
-  top: calc(1vh + 25px);
-  margin: 0 auto;
-  left: calc(50% - 22%);
-  width: 44%;
-  font-size: 15px;
-  line-height: 24px;
-  background-color: rgba(42, 54, 76, 0.98);
-  border-radius: 5px;
-  padding: 5px 25px;
-  color: #dddddd;
-  z-index: 999;
 }
 .error-city {
   display: flex;

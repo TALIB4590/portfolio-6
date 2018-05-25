@@ -27,6 +27,7 @@ export default {
         {title: 'Weather',icon: 'weather.png',navigation: 'Weather'},
         {title: 'Portfolio',icon: 'iphone.png',navigation: 'iPhone'},
         {title: 'Gallery',icon: 'gallery.png',navigation: 'Gallery'},
+        {title: 'Mini Game',icon: 'game.png',navigation: 'PaperGame'},
       ]
     }
   },

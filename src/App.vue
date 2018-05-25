@@ -36,4 +36,19 @@ ul,li {
   margin: 0;
   list-style: none;
 }
+.window-wrapper {
+  font-family: 'Dosis', sans-serif;
+  position: absolute;
+  top: calc(1vh + 25px);
+  margin: 0 auto;
+  left: calc(50% - 22%);
+  width: 44%;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: rgba(42, 54, 76, 0.98);
+  border-radius: 5px;
+  padding: 5px 25px;
+  color: #dddddd;
+  z-index: 999;
+}
 </style>

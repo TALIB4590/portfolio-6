@@ -5,6 +5,7 @@ import Main from '@/components/Main'
 import Weather from '@/components/Weather'
 import iPhone from '@/components/iPhone'
 import Gallery from '@/components/Gallery'
+import PaperGame from '@/components/PaperGame'
 import Innerframe from '@/components/Innerframe'
 
 Vue.use(VueRouter)
@@ -36,7 +37,11 @@ let router = new VueRouter({
       path: 'gallery',
       name: 'Gallery',
       component: Gallery
-    },]
+    },{
+      path: 'game',
+      name: 'PaperGame',
+      component: PaperGame
+    }]
   }, ],
   mode: 'history',
 })

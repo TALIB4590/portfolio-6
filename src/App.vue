@@ -21,7 +21,9 @@ body {
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
+.flex{
+  display: flex;
+}
 .pointer {
   cursor: pointer;
 }

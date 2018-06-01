@@ -4,7 +4,7 @@ import Login from '@/components/Login'
 import Main from '@/components/Main'
 import Weather from '@/components/Weather'
 import iPhone from '@/components/iPhone'
-import Gallery from '@/components/Gallery'
+import Youtube from '@/components/Youtube'
 import PaperGame from '@/components/PaperGame'
 import Innerframe from '@/components/Innerframe'
 
@@ -34,9 +34,9 @@ let router = new VueRouter({
         props: true
       }]
     },{
-      path: 'gallery',
-      name: 'Gallery',
-      component: Gallery
+      path: 'youtube',
+      name: 'Youtube',
+      component: Youtube
     },{
       path: 'game',
       name: 'PaperGame',

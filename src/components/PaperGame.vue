@@ -8,11 +8,11 @@
         <div class="players">
           <div class="player">
             <h3>You</h3>
-            <img class="pointer" :class="{hide: !hide,selected: selected === hand,disabled: selected === hand,looser: result < 0}" v-for="hand in hands" :key="hand" :src="require(`../assets/game/${hand}.png`)" @click="play(hand)">
+            <img class="pointer circled" :class="{hide: !hide,selected: selected === hand,disabled: selected === hand,looser: result < 0}" v-for="hand in hands" :key="hand" :src="require(`../assets/game/${hand}.png`)" @click="play(hand)">
           </div>
           <div class="player">
             <h3>Koikas.eu</h3>
-            <img :class="{'rotate-180': opponentHand !== 'question',looser: result > 0}" :src="require(`@/assets/game/${opponentHand}.png`)">
+            <img class="circled" :class="{'rotate-180': opponentHand !== 'question',looser: result > 0}" :src="require(`@/assets/game/${opponentHand}.png`)">
           </div>
         </div>
         <template v-if="result < 0">
@@ -183,7 +183,7 @@ export default {
   text-align: center;
 }
 .paper {
-  background: url(https://www.wallpaperup.com/uploads/wallpapers/2012/03/13/1609/f954ec4554769ef1e46da46d1e5255ff.jpg)
+  background: url(http://images.directoryofshareware.com/full/animated_desktop_wallpaper_starfield_desktop_screen_savers-509108.gif)
     no-repeat;
   background-size: cover;
   padding: 15px;
@@ -232,5 +232,11 @@ export default {
 .rank {
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
+}
+.circled {
+  border-radius: 50%;
+  padding: 5px;
+  margin: 5px;
+  background-color: grey;
 }
 </style>

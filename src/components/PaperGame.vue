@@ -31,7 +31,7 @@
               </tr>
             </table>
           </div>
-          <div v-show="saved">
+          <div class="search player-upload" v-show="saved">
             <input class="player-name" name="player" type="text" v-model.trim="valueName" placeholder="your name" />
             <button class="play save pointer" @click="save()">Upload Score</button>
           </div>
@@ -220,6 +220,10 @@ export default {
   padding: 5px;
   border: 0;
   height: 20px;
+}
+.player-upload input{
+  border-bottom: 1px solid #dddddd;
+  margin: 5px;
 }
 .player-label-name {
   color: white;

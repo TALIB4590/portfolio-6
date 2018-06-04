@@ -28,6 +28,7 @@ export default {
         {title: 'Portfolio',icon: 'iphone.png',navigation: 'iPhone'},
         {title: 'Youtube',icon: 'youtube.png',navigation: 'Youtube'},
         {title: 'Mini Game',icon: 'game.png',navigation: 'PaperGame'},
+        {title: 'Contact me',icon: 'contact.png',navigation: 'Contact'},
       ]
     }
   },

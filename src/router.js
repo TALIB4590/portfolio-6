@@ -7,6 +7,7 @@ import iPhone from '@/components/iPhone'
 import Youtube from '@/components/Youtube'
 import PaperGame from '@/components/PaperGame'
 import Innerframe from '@/components/Innerframe'
+import Contact from '@/components/Contact'
 
 Vue.use(VueRouter)
 
@@ -23,7 +24,7 @@ let router = new VueRouter({
       path: 'weather',
       name: 'Weather',
       component: Weather
-    },{
+    }, {
       path: 'iphone',
       name: 'iPhone',
       component: iPhone,
@@ -33,14 +34,18 @@ let router = new VueRouter({
         component: Innerframe,
         props: true
       }]
-    },{
+    }, {
       path: 'youtube',
       name: 'Youtube',
       component: Youtube
-    },{
+    }, {
       path: 'game',
       name: 'PaperGame',
       component: PaperGame
+    }, {
+      path: 'contact',
+      name: 'Contact',
+      component: Contact
     }]
   }, ],
   mode: 'history',

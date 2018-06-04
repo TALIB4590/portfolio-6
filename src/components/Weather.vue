@@ -147,20 +147,7 @@ export default {
 .current #feels-like {
   font-size: 15px;
 }
-.search input {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  flex: 1 1 auto;
-  height: 30px;
-  background: transparent;
-  color: #eeeeee;
-  padding: 5px 8px;
-  font-size: 24px;
-}
-.search input:focus {
-  outline: 0;
-}
+
 .search button {
   -webkit-appearance: none;
   border: none;

@@ -26,6 +26,7 @@ const actions = {
     fetch(`${state.youtubeUrl + payload}&type=video&maxResults=${state.maxResults}&key=${state.apiKey}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         commit('setVideoList', data)
         commit('setSelected', data.items[0])
       })

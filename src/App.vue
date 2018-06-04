@@ -24,6 +24,9 @@ body {
 .flex{
   display: flex;
 }
+.flex-vCenter{
+  align-items: center;
+}
 .pointer {
   cursor: pointer;
 }
@@ -52,5 +55,19 @@ ul,li {
   padding: 5px 25px;
   color: #dddddd;
   z-index: 999;
+}
+.search input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  flex: 1 1 auto;
+  height: 30px;
+  background: transparent;
+  color: #eeeeee;
+  padding: 5px 8px;
+  font-size: 24px;
+}
+.search input:focus {
+  outline: 0;
 }
 </style>

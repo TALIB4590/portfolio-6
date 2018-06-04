@@ -29,11 +29,6 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    ok() {
-      console.log('ok');
-    },
-  },
 };
 </script>
 

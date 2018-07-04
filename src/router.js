@@ -43,11 +43,10 @@ let router = new VueRouter({
       name: 'PaperGame',
       component: PaperGame
     }, {
-      path: 'contact',
+      path: 'contact/:about?',
       name: 'Contact',
       component: Contact
     }]
-  }, ],
-  mode: 'history',
+  }, ]
 })
 export default router

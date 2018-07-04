@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="window-wrapper" v-draggable>
-      <form @submit.prevent="getCityWeather()" class="search flex">
+      <form @submit.prevent="getCityWeather()" class="search w flex">
         <input type="text" v-model.trim="city" placeholder="Search city..."/>
         <button type="submit">
           <i class="icon icon-magnifier"></i>
@@ -148,13 +148,13 @@ export default {
   font-size: 15px;
 }
 
-.search button {
+.search.w button {
   -webkit-appearance: none;
   border: none;
   color: inherit;
   background: transparent;
 }
-.search button:focus {
+.search.w button:focus {
   outline: none;
 }
 .search .icon {

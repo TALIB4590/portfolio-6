@@ -1,11 +1,15 @@
 <template>
     <transition name="fade">
         <div class="window-wrapper contact flex">
-            <div class="contact-left">
-                <img src="@/assets/me.png" width="150"/>
-                <div>Nikos Koikas</div>
-                <button>Bio</button>
-                <button>Contact me</button>
+            <div class="contact-left flex flex-vCenter">
+                <div>
+                    <img src="@/assets/me.png" width="150"/>
+                    <h3 class="name">Nikos Koikas</h3>
+                </div>
+                <div>
+                    <button class="btn green pointer" @click="changeComponent('about')">About me</button>
+                    <button class="btn pointer" @click="changeComponent('contact')">Contact me</button>
+                </div>
             </div>
             <div class="contact-right">
                 <div class="contact-box">
@@ -17,14 +21,28 @@
 </template>
 <script>
 import contact from '@/components/Contactme.vue';
+import about from '@/components/About.vue';
 
 export default {
-  name: "contact",
+  name: 'contact',
   components: {},
   data() {
     return {
-        display: contact
+      display: contact,
     };
+  },
+  methods: {
+    changeComponent(component) {
+      const vm = this;
+      if (component === 'about') {
+        return (vm.display = about);
+      }
+      return (vm.display = contact);
+    },
+  },
+  created () {
+    const vm = this
+    vm.$route.params.about ? vm.changeComponent('about') : vm.changeComponent('display')
   }
 };
 </script>
@@ -40,6 +58,10 @@ export default {
   width: 33.3333%;
   padding: 25px;
   border-radius: 5px 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 .contact-right {
   width: 66.6666%;
@@ -50,6 +72,9 @@ export default {
 .contact-box {
   border: 1px solid #aaaaaa;
   background-color: #ffffff;
-  padding: 10px
+  padding: 10px 20px;
+}
+.contact-left .name {
+  text-align: center;
 }
 </style>

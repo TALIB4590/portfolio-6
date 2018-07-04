@@ -70,4 +70,25 @@ ul,li {
 .search input:focus {
   outline: 0;
 }
+.btn {
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  color: white;
+  background-color: mediumslateblue;
+  box-shadow: 0 3px 8px 0px rgba(65, 105, 225, .18);
+  display: inline-block;
+  border: 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  transition: all .1s ease-in;
+}
+.btn.green {
+  background-color: mediumaquamarine;
+}
+.btn:hover {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px 0px rgba(65, 105, 225, .48);
+}
 </style>

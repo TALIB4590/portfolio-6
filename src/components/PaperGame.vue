@@ -33,9 +33,9 @@
           </div>
           <div class="search player-upload" v-show="saved">
             <input class="player-name" name="player" type="text" v-model.trim="valueName" placeholder="your name" />
-            <button class="play save pointer" @click="save()">Upload Score</button>
+            <button class="btn pointer" @click="save()">Upload Score</button>
           </div>
-          <button class="play pointer" @click="reset();counter = 0">Play again</button>
+          <button class="btn green pointer" @click="reset();counter = 0">Play again</button>
         </template>
       </div>
     </div>

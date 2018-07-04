@@ -21,7 +21,7 @@
                 <label>Restore down</label>
             </div> 
             <div class="option">
-                <i class="icon icon-info"></i>
+                <i class="icon icon-info" @click="$router.push({name: 'Contact', params:{about: 'about'}})"></i>
                 <label>About</label>
             </div>
         </div>
